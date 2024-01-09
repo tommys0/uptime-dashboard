@@ -16,7 +16,7 @@ function showAlert() {
     alertElement.style.display = 'block';
 
     setTimeout(function() {
-        alertElement.style.display = 'show';
+        alertElement.style.display = 'none';
     }, 2000);
 }
 
