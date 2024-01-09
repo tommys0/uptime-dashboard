@@ -50,6 +50,7 @@ nav {
     bottom: 20px;
     right: 20px;
     background-color: #f44336;
+    border: #e0382c solid 2px;
     color: white;
     padding: 15px;
     border-radius: 5px;
