@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     refresh();
 });
 
@@ -9,10 +9,12 @@ function last30DaysData() {
         const uptime = Math.floor(Math.random() * 21) + 80;
         const uptimeAverage = Math.floor(Math.random() * 21) + 70;
 
+        const lastDowntime = new Date(new Date() - Math.floor(Math.random() * 30) * 24 * 60 * 60 * 1000);
+
         data.push({
             uptime: uptime,
             uptimeAverage: uptimeAverage,
-            lastDowntime: new Date().toISOString(),
+            lastDowntime: lastDowntime.toISOString(),
         });
     }
 
@@ -28,6 +30,8 @@ function refresh() {
 function renderUptimeScore(data) {
     const uptimeScoreDiv = document.querySelector('.uptime-score');
     uptimeScoreDiv.innerHTML = '';
+
+    console.log('Uptime score');
 
     const recentData = data.slice(-12);
 
@@ -51,6 +55,8 @@ function renderUptimeDetails(lastDayData) {
     const uptimeDetailsDiv = document.querySelector('.uptime-details');
     uptimeDetailsDiv.innerHTML = '';
 
+    console.log('Uptime details');
+
     const now = new Date();
     const lastDowntime = new Date(lastDayData.lastDowntime);
 
@@ -60,12 +66,11 @@ function renderUptimeDetails(lastDayData) {
     const hours = Math.floor((differenceMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((differenceMs % (1000 * 60 * 60)) / (1000 * 60));
 
-    const detailsHTML = `
-        <p>Uptime: ${lastDayData.uptime}%</p>
-        <p>Last Downtime: ${days} days, ${hours} hours, ${minutes} minutes ago</p>
-        <p>Average Uptime: ${lastDayData.uptimeAverage}%</p>
-    `;
-    uptimeDetailsDiv.innerHTML = detailsHTML;
+    uptimeDetailsDiv.innerHTML = `
+    <p>Uptime: ${lastDayData.uptime}%</p>
+    <p>Last Downtime: ${days} days ago</p>
+    <p>Average Uptime: ${lastDayData.uptimeAverage}%</p>
+  `;
 }
 
 function showAlert() {
@@ -81,7 +86,7 @@ function showAlert() {
 
     alertElement.style.display = 'block';
 
-    setTimeout(function() {
+    setTimeout(function () {
         alertElement.style.display = 'none';
     }, 2000);
 }
