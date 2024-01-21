@@ -85,6 +85,15 @@ nav {
     align-items: center;
 }
 
+.uptime-details h2,
+.uptime-score h2 {
+    display: block;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
 .bar {
     display: inline-block;
     height: 10px;
