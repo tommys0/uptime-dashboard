@@ -57,3 +57,56 @@ nav {
     display: none;
 }
 
+.uptime-details {
+    width: 800px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 2px #f4f4f4 solid;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.uptime-score {
+    width: 800px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 2px #f4f4f4 solid;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.uptime-score {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.bar {
+    display: inline-block;
+    height: 10px;
+    width: 7%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+
+.uptime-score .bar:hover {
+    background-color: #007bff;
+}
+
+.uptime-score .bar[data-uptime="100%"] {
+    background-color: green;
+}
+
+.uptime-score .bar[data-uptime="95%"]:not([data-uptime="100%"]) {
+    background-color: #28a745;
+}
+
+.uptime-score .bar[data-uptime="85%"]:not([data-uptime="95%"]:not([data-uptime="100%"])):not([data-uptime="<85"]) {
+    background-color: yellow;
+}
